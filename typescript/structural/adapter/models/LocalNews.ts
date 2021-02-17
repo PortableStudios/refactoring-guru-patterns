@@ -22,7 +22,7 @@ class LocalNews {
     this.published_at = published_at
     this.tagline = tagline
   }
-
+  
   static all(): LocalNews[] {
     return dataJSON.map(this.deserialise)
   }
