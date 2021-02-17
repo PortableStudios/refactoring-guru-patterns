@@ -1,17 +1,17 @@
 import LocalNews from '../models/LocalNews'
+import InternationalNews from '../services/InternationalNews'
 import renderNewsItems from '../views/newsItems'
 import { render } from '../helpers/rendering'
 
 class NewsController {
   index() {
     render('Fetching articles...')
-    const newsItems = LocalNews.all()
+    const newsItems: (LocalNews | InternationalNews)[] = []
+    const localNewsItems = LocalNews.all()
+    const internationalNewsItems = InternationalNews.all()
 
-    // TODO: Implement an adapter so that you can combine Local and International News
-    //const internationalNewsItems = InternationalNews.all()
-    //
-    // FIXME The line below won't compile until you can create an adapter for internationalNewsItems
-    //newsItems.push(internationalNewsItems)
+    newsItems.push(...internationalNewsItems)
+    newsItems.push(...localNewsItems)
 
     render('Rendering articles...')
     const view = renderNewsItems(newsItems)

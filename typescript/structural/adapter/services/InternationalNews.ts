@@ -4,7 +4,7 @@
 // the JSON API and returns them as an array of already deserialised Typescript
 // objects.
 
-import * as dataJSON from '../data/international-news.json'
+import dataJSON from '../data/international-news.json'
 
 interface InternationalNewsJson {
   title: string
