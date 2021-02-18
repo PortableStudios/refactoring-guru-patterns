@@ -1,10 +1,8 @@
-import LocalNews from '../models/LocalNews'
-import InternationalNews from '../services/InternationalNews'
-
 import renderNewsItem from './newsItem'
 import { doubleLineBreak } from '../helpers/formatting'
+import ViewableNews from '../interface/ViewableNews'
 
-const view = (newsItems: (LocalNews | InternationalNews)[]): string => {
+const view = (newsItems: (ViewableNews)[]): string => {
   return newsItems.map(renderNewsItem).join(doubleLineBreak)
 }
 

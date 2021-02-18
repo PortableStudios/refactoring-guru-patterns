@@ -5,6 +5,7 @@
 // database and gives them back to you as an array of Typescript objects
 
 import dataJSON from '../data/local-news.json'
+import ViewableNews from '../interface/ViewableNews'
 
 interface LocalNewsJson {
   headline: string
@@ -12,7 +13,7 @@ interface LocalNewsJson {
   publishedAt: string
 }
 
-class LocalNews {
+class LocalNews implements ViewableNews {
   readonly headline
   readonly published_at
   readonly tagline
