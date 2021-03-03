@@ -50,7 +50,7 @@ function isDateFilter(filter: NewsRequestFilter): filter is NewsRequestFilterDat
 
 // Return a number between -1 and 1
 export function numCompare(a: number, b: number) {
-    return Math.min(Math.max(-1, b - a), 1);
+    return Math.min(Math.max(-1, a - b), 1);
 }
 
 export function isDateMatch(newsItem: NewsData, filter: NewsRequestFilter) {

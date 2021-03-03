@@ -18,7 +18,7 @@
   },
   "scripts": {
     "structural:adapter": "ts-node structural/adapter/index.ts",
-    "creation:builder": "yarn jest -t 'Test New Service'"
+    "creation:builder": "yarn jest typescript/creational/builder"
   },
   "dependencies": {}
 }
