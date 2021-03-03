@@ -20,5 +20,4 @@ export class NewsService implements AbstractNewsService {
     search(title: string): News[] {
         return [];
     }
-
 }
