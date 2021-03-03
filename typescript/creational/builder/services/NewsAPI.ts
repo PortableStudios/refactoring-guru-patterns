@@ -4,7 +4,7 @@ import {
     NewsRequestFilterCategory,
     NewsRequestFilterDate,
     NewsRequestFilterTitle,
-    NewsRequestInterface
+    NewsRequestInterface, NewsRequestSort
 } from "../models/NewsRequest";
 
 type NewsData = {
@@ -14,10 +14,11 @@ type NewsData = {
 }
 
 function isCategoryFilter(filter: NewsRequestFilter): filter is NewsRequestFilterCategory {
-    return filter.field == "category"
+    return filter.field === "category"
 }
 
-function isCategoryMatch(item: NewsData, filter: NewsRequestFilterCategory ) {
+export function isCategoryMatch(item: NewsData, filter: NewsRequestFilter ) {
+    if(!isCategoryFilter(filter)) return true;
     switch (filter.fieldType) {
         case "match":
             return item.category === filter.filterValue;
@@ -33,7 +34,8 @@ function isTitleFilter(filter: NewsRequestFilter): filter is NewsRequestFilterTi
 }
 
 
-function isTitleMatch(item: NewsData, filter: NewsRequestFilterTitle) {
+export function isTitleMatch(item: NewsData, filter: NewsRequestFilter) {
+    if(!isTitleFilter(filter)) return true;
     switch (filter.fieldType) {
         case "match":
             return item.title.indexOf(filter.filterValue) !== -1;
@@ -48,10 +50,11 @@ function isDateFilter(filter: NewsRequestFilter): filter is NewsRequestFilterDat
 
 // Return a number between -1 and 1
 export function numCompare(a: number, b: number) {
-    return Math.min(Math.max(-1, a - b), 1);
+    return Math.min(Math.max(-1, b - a), 1);
 }
 
-function isDateMatch(newsItem: NewsData, filter: NewsRequestFilterDate) {
+export function isDateMatch(newsItem: NewsData, filter: NewsRequestFilter) {
+    if(!isDateFilter(filter)) return true;
     switch (filter.fieldType) {
         case "afterDate":
             return (new Date(newsItem.date).getSeconds() > filter.filterValue.getSeconds())
@@ -62,23 +65,16 @@ function isDateMatch(newsItem: NewsData, filter: NewsRequestFilterDate) {
     }
 }
 
-function Filter(request: NewsRequestInterface, newsItem: NewsData): Boolean {
-    return request.filters.filter((filter) => {
-        if(isCategoryFilter(filter) && !isCategoryMatch(newsItem, filter)) {
-            return false;
-        }
-        if(isTitleFilter(filter) && !isTitleMatch(newsItem, filter)) {
-            return false;
-        }
-        if(isDateFilter(filter) && !isDateMatch(newsItem, filter)) {
-            return false;
-        }
-        return true
-    }).length > 1
+export function Filter(filters: NewsRequestFilter[], newsItem: NewsData): Boolean {
+    return filters.filter((filter) => {
+        return isCategoryMatch(newsItem, filter)
+          && isTitleMatch(newsItem, filter)
+          && isDateMatch(newsItem, filter)
+    }).length > 0 || filters.length === 0;
 }
 
-function SortNews(a: NewsData, b: NewsData, request: NewsRequestInterface) {
-    return request.sort.reduce((res, sort) => {
+export function SortNews(a: NewsData, b: NewsData, sort: NewsRequestSort[]) {
+    return sort.reduce((res, sort) => {
         switch (sort.field) {
             case "category":
                 return (res*10) + (a.category.localeCompare(b.category) * (sort.direction == "ASC" ? 1 : -1))
@@ -92,12 +88,13 @@ function SortNews(a: NewsData, b: NewsData, request: NewsRequestInterface) {
 
 export type News = {
     title: string
+    date: Date
 }
-export const newNews = (title: string): News => ({title});
+export const newNews = (title: string, date: Date): News => ({title, date});
 export const NewsDoRequest = (request: NewsRequestInterface): News[] => {
-    if (request.authentication.secret) throw new Error("Access Denied");
+    if (!request.authentication.secret) throw new Error("Access Denied");
     return (dataJSON as unknown as NewsData[])
-        .filter((newsItem) => Filter(request, newsItem))
-        .sort((a,b) => SortNews(a,b, request))
-        .map(item => newNews(item.title))
+        .filter((newsItem) => Filter(request.filters, newsItem))
+        .sort((a,b) => SortNews(a,b, request.sort))
+        .map(item => newNews(item.title, new Date(item.date)))
 }
