@@ -18,7 +18,8 @@
   },
   "scripts": {
     "structural:adapter": "ts-node structural/adapter/index.ts",
-    "creation:builder": "yarn jest typescript/creational/builder"
+    "creation:builder": "yarn jest typescript/creational/builder",
+    "structural:decorator": "ts-node structural/decorator/index.ts"
   },
   "dependencies": {}
 }
