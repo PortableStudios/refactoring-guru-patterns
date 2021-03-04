@@ -10,7 +10,7 @@ inside special wrapper objects that contain the behaviors.
 ## Problem
 
 We have a small but growing coffee shop that currently has some pretty annoying customers in the controller code.
-At the moment we're having to create concrete classes for every possible combonation of coffee order and instead,
+At the moment we're having to create concrete classes for every possible combination of coffee order and instead,
 we'd like to simplify this so coffee orders can be decorated with "ad ons".
 
 Your task is to refactor the controller code, implementing the decorator pattern so that we no longer need to create
