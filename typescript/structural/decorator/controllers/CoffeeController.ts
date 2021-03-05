@@ -14,15 +14,6 @@ export default class CoffeeController {
     order.add(new InstantCoffeeWithMilk)
     order.add(new InstantCoffeeWithSugar)
 
-    // TODO: Implement the decorator pattern:
-    // * Identify the primary component that has optional layers
-    // * Identify the methods in common to both the primary component and the optional layers
-    // * Create the component interface and declare the common methods
-    // * Create the concrete component class and define the base behavior
-    // * Create the base decorator class. It should have a property for referencing the base or decorated object
-    // * Create concrete decorators by extending them from the base decorator
-    // * Compose!
-
     // A revolutionary customer decides they want Milk and Sugar with their coffee... wuuuttt?
     // ...Should we create a new concrete class InstantCoffeeWithMilkAndSugar? Ah ah ah
     
@@ -32,6 +23,15 @@ export default class CoffeeController {
     // What now... do we create RoastedCoffeeWithMilkAndSugar and so on?
     
     // order.add(...)
+
+    // TODO: Implement the decorator pattern:
+    // * Identify the primary component that has optional layers
+    // * Identify the methods in common to both the primary component and the optional layers
+    // * Create the component interface and declare the common methods
+    // * Create the concrete component class and define the base behavior
+    // * Create the base decorator class. It should have a property for referencing the base or decorated object
+    // * Create concrete decorators by extending them from the base decorator
+    // * Compose!
 
     render('Paying the barista...')
     const view = checkout(order)
