@@ -94,11 +94,11 @@ export class OrderHandler {
             case BeverageType.GREEN_TEA:
                 try {
                     const greenTeaService = new GreenTeaService();
-                    greenTeaService.make(order);
+                    await greenTeaService.make(order);
 
                     return new OrderFullfilled(order);
                 } catch (error) {
-                    return new OrderRejected(order, `EspressMagix: ${error.message}`);
+                    return new OrderRejected(order, `Ocha: ${error.message}`);
                 }
             case BeverageType.TEA:
                 const connection = getTcpConnection();
