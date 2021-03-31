@@ -12,7 +12,7 @@ Strategy is a behavioral design pattern that lets you define a family of algorit
  on our customers phones. The orders get ingested on one of our servers and the order handler is subscribed to
  any orders that come through. The order handler calls the correct machine, creates the beverage (or fails) and returns
  the relevant order status object, which is then picked up by other services to move the beverage into the customers hands.
- We've got 4 machines which handle different beverages - our super fancy Coffe and Latte maker has a well maintained SDK,
+ We've got 4 machines which handle different beverages - our super fancy Coffee and Latte maker has a well maintained SDK,
  the EspressoMagix has a nice, but now quite old, library. Our green tea maker is a small wrapper around some API services
  and our TeaMaker is connected via TCP, which is pretty old (but it works)
 
