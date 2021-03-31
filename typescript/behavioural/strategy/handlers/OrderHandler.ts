@@ -115,16 +115,16 @@ export class OrderHandler {
                 if (order.customisation.milk !== MilkType.NONE) {
                     switch (order.size) {
                         case BeverageSize.SMALL:
-                            buffer.write(`TEACP milk ml 50`);
+                            buffer.write(`TEACP milk ml 50;`);
                             break;
                         case BeverageSize.MEDIUM:
-                            buffer.write(`TEACP milk ml 100`);
+                            buffer.write(`TEACP milk ml 100;`);
                             break;
                         case BeverageSize.LARGE:
-                            buffer.write(`TEACP milk ml 200`);
+                            buffer.write(`TEACP milk ml 200;`);
                             break;
                         case BeverageSize.MEGA:
-                            buffer.write(`TEACP milk ml 300`);
+                            buffer.write(`TEACP milk ml 300;`);
                             break;
                         default:
                             return new OrderRejected(order, 'TEACP: Unknown beverage size. Allowed milk volume indeterminate');
@@ -132,7 +132,7 @@ export class OrderHandler {
                 }
 
                 if (order.customisation.sugar !== 0) {
-                    buffer.write(`TEACP sugar tsp ${order.customisation.sugar}`);
+                    buffer.write(`TEACP sugar tsp ${order.customisation.sugar};`);
                 }
 
                 const success = socket.write(buffer);
