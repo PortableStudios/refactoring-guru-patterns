@@ -57,8 +57,7 @@ export class OrderHandler {
 
                     if (order.customisation.sugar !== 0) {
                         brewTeam3000.setSugarUnits(TEASPOON);
-                        // tsp is ~ 15mg. its a magic number
-                        brewTeam3000.setSugarAmount(order.customisation.sugar * 15);
+                        brewTeam3000.setSugarAmount(order.customisation.sugar);
                     }
 
                     if (order.customisation.whippedCream) {
