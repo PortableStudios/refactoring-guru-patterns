@@ -19,6 +19,8 @@ import { OrderRejected } from '../types/OrderRejected';
  *
  * The lib folder basically contains the vendor files and we don't own them and (in theory) cant change it. Only look
  * in there if you want to ruin the illusion.
+ *
+ * This file is intentionally gross - lets fix it!
  */
 export class OrderHandler {
     async handle(order: Order): Promise<OrderFullfilled | OrderRejected> {
