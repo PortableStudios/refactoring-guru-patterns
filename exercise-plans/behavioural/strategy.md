@@ -18,6 +18,7 @@ Strategy is a behavioral design pattern that lets you define a family of algorit
 
  The current implementation is fine - it does the job, but with future expansion this file will grow exponentially and worse... we can only run integration tests on it.
  The main entry point you'll need is in handlers/OrderHandler.ts
+
 ## Expected Outcomes
 
  * We want to be able to unit test each machines implementation
