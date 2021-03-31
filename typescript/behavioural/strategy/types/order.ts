@@ -1,6 +1,6 @@
-import { BeverageSize } from '../enums/beverageSize';
-import { BeverageType } from '../enums/beverageType';
-import { MilkType } from '../enums/milkType';
+import { BeverageSize } from '../enums/BeverageSize';
+import { BeverageType } from '../enums/BeverageType';
+import { MilkType } from '../enums/MilkType';
 
 export interface Order {
     id: string;

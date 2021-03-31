@@ -1,5 +1,5 @@
-import { BeverageType } from '../../enums/beverageType';
-import { Order } from '../../types/order';
+import { BeverageType } from '../../enums/BeverageType';
+import { Order } from '../../types/Order';
 
 import {
     makeCoffeeOrder,

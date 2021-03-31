@@ -1,7 +1,7 @@
-import { BeverageSize } from '../../enums/beverageSize';
-import { BeverageType } from '../../enums/beverageType';
-import { MilkType } from '../../enums/milkType';
-import { Order } from '../../types/order';
+import { BeverageSize } from '../../enums/BeverageSize';
+import { BeverageType } from '../../enums/BeverageType';
+import { MilkType } from '../../enums/MilkType';
+import { Order } from '../../types/Order';
 import { randomArrayElement, randomBoolean, randomInteger, randomName, randomUUID, randomEnumValue } from '../random/random';
 
 

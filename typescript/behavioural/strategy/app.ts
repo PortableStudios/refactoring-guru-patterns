@@ -1,8 +1,8 @@
 import { OrderHandler } from './handlers/OrderHandler';
 import { OrderGenerator } from './lib/generators/OrderGenerator';
 import { randomInteger } from './lib/random/random';
-import { Order } from './types/order';
-import { OrderFullfilled } from './types/orderFulfilled';
+import { Order } from './types/Order';
+import { OrderFullfilled } from './types/OrderFulfilled';
 
 export default class Application {
   run() {

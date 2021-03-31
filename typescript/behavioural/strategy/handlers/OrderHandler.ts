@@ -1,14 +1,14 @@
-import { BeverageSize } from '../enums/beverageSize';
-import { BeverageType } from '../enums/beverageType';
-import { MilkType } from '../enums/milkType';
+import { BeverageSize } from '../enums/BeverageSize';
+import { BeverageType } from '../enums/BeverageType';
+import { MilkType } from '../enums/MilkType';
 import { BrewTeam3000, MILLILITRES, notifyBrewTeamSupport, NOW, TEASPOON, WHIPPED_CREAM } from '../lib/BrewTeam/BrewTeam';
 import { BrewTeamError } from '../lib/BrewTeam/exceptions/BrewTeamError';
 import { EspressMagix } from '../lib/EspressMagix/EspressMagix';
 import { GreenTeaService } from '../lib/GreenTeaService/GreenTeaService';
 import { getSocket, getTcpConnection, makeBuffer } from '../lib/TeaCP';
-import { Order } from '../types/order';
-import { OrderFullfilled } from '../types/orderFulfilled';
-import { OrderRejected } from '../types/orderRejected';
+import { Order } from '../types/Order';
+import { OrderFullfilled } from '../types/OrderFulfilled';
+import { OrderRejected } from '../types/OrderRejected';
 
 /**
  * We need one abstract classes and one or more concrete implementations of it.

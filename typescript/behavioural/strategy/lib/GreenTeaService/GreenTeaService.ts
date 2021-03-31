@@ -1,4 +1,4 @@
-import { Order } from '../../types/order';
+import { Order } from '../../types/Order';
 import { noop } from '../helpers/noop';
 
 export class GreenTeaService {
