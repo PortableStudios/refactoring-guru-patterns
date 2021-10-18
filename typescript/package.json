@@ -20,7 +20,8 @@
         "behavioural:strategy": "ts-node behavioural/strategy/index.ts",
         "creation:builder": "yarn jest typescript/creational/builder",
         "structural:adapter": "ts-node structural/adapter/index.ts",
-        "structural:decorator": "ts-node structural/decorator/index.ts"
+        "structural:decorator": "ts-node structural/decorator/index.ts",
+        "structural:proxy": "ts-node structural/proxy/index.ts"
     },
     "dependencies": {}
 }
