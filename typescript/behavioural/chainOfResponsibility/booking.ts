@@ -1,5 +1,5 @@
 import {allocateRoom, Allotment, Room} from "./allocateRoom";
-// @ts-ignore
+// @ts-ignore - My IDE does seem to like this import
 import * as readline from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'process';
 
