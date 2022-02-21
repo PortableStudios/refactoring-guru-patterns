@@ -19,6 +19,11 @@ The structure of the repo is as follows:
   * creational
 ```
 
+You may also notice a `misc` category. This is where we include some
+additional refactoring exercises that do not neatly fit into either just
+one of the existing techniques, or employ a number of different
+techniques to complete the refactoring.
+
 ## Instructions
 
 Copy the repo and begin working through the specific exercises.

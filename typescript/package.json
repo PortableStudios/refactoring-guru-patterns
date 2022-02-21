@@ -12,6 +12,7 @@
         "@babel/preset-typescript": "^7.13.0",
         "@types/jest": "^26.0.20",
         "@types/node": "^17.0.10",
+        "axios": "^0.26.0",
         "babel-jest": "^26.6.3",
         "jest": "^26.6.3",
         "ts-node": "^9.1.1",
@@ -24,7 +25,8 @@
         "behavioural:chainOfResponsibility:test": "yarn jest behavioural/chainOfResponsibility",
         "structural:adapter": "ts-node structural/adapter/index.ts",
         "structural:decorator": "ts-node structural/decorator/index.ts",
-        "structural:proxy": "ts-node structural/proxy/index.ts"
-    },
-    "dependencies": {}
+        "structural:proxy": "ts-node structural/proxy/index.ts",
+        "misc:di": "ts-node misc/dependency-inversion/index.ts",
+        "misc:di:test": "yarn jest misc/dependency-inversion/index.ts"
+    }
 }
