@@ -1,1 +1,4 @@
 node_modules
+/php/practice/rule-engine/vendor/
+/php/practice/rule-engine/.phpunit.result.cache
+/php/practice/rule-engine/.cache/

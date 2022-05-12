@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit bootstrap = "">
+    <testsuites>
+        <testsuite name="Custom Modules">
+            <directory>/app</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
